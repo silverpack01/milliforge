@@ -1,3 +1,5 @@
+export const SITE_URL = "https://milliforge.dev";
+
 export const CONTACT_PHONE_DISPLAY = "0311 3717007";
 export const CONTACT_PHONE_TEL = "+923113717007";
 
