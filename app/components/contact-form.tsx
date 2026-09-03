@@ -5,7 +5,12 @@ import { SERVICES } from "../lib/services";
 import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, buildWhatsAppUrl } from "../lib/site";
 import { AppIcon, CheckIcon, PhoneIcon } from "./icons";
 
-const BUDGETS = ["Under $500", "$500 – $1,500", "$1,500 – $5,000", "$5,000+"];
+const BUDGET_PRESETS = [
+  "Under PKR 50,000",
+  "PKR 50,000 – 150,000",
+  "PKR 150,000 – 300,000",
+  "PKR 300,000+",
+];
 
 type FormState = {
   name: string;
@@ -21,7 +26,7 @@ const INITIAL: FormState = {
   email: "",
   phone: "",
   service: SERVICES[0].title,
-  budget: BUDGETS[1],
+  budget: "",
   message: "",
 };
 
@@ -45,7 +50,7 @@ export function ContactForm() {
       `Email: ${form.email}`,
       form.phone ? `Phone: ${form.phone}` : null,
       `Service: ${form.service}`,
-      `Budget: ${form.budget}`,
+      form.budget ? `Budget: PKR ${form.budget}` : null,
       ``,
       `Details: ${form.message}`,
     ].filter((line) => line !== null);
@@ -147,20 +152,38 @@ export function ContactForm() {
         </div>
         <div className="sm:col-span-2">
           <label htmlFor="budget" className="mb-1.5 block text-xs font-medium text-zinc-300">
-            Estimated budget
+            Estimated budget (PKR)
           </label>
-          <select
-            id="budget"
-            value={form.budget}
-            onChange={(e) => update("budget", e.target.value)}
-            className={`${inputClasses} appearance-none [&>option]:bg-zinc-900`}
-          >
-            {BUDGETS.map((budget) => (
-              <option key={budget} value={budget}>
-                {budget}
-              </option>
+          <div className="relative">
+            <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm font-semibold text-zinc-400">
+              PKR
+            </span>
+            <input
+              id="budget"
+              type="text"
+              inputMode="numeric"
+              value={form.budget}
+              onChange={(e) => update("budget", e.target.value)}
+              placeholder="e.g. 80,000"
+              className={`${inputClasses} pl-14`}
+            />
+          </div>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {BUDGET_PRESETS.map((preset) => (
+              <button
+                key={preset}
+                type="button"
+                onClick={() => update("budget", preset.replace(/^PKR\s*/, ""))}
+                className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+                  form.budget === preset.replace(/^PKR\s*/, "")
+                    ? "border-brand-400/60 bg-brand-400/20 text-white"
+                    : "border-white/10 bg-white/5 text-zinc-300 hover:border-white/20 hover:text-white"
+                }`}
+              >
+                {preset}
+              </button>
             ))}
-          </select>
+          </div>
         </div>
         <div className="sm:col-span-2">
           <label htmlFor="message" className="mb-1.5 block text-xs font-medium text-zinc-300">

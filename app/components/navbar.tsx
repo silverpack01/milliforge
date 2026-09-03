@@ -36,6 +36,15 @@ export function Navbar() {
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen]);
+
   function isActive(href: string) {
     if (href === "/") return pathname === "/";
     return pathname === href || pathname.startsWith(`${href}/`);
@@ -113,35 +122,46 @@ export function Navbar() {
         </nav>
 
         {mobileOpen ? (
-          <div className="glass-strong mt-2 rounded-2xl p-4 md:hidden">
-            <ul className="flex flex-col gap-1">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
+          <>
+            {/* Full-screen dim backdrop so page content never shows
+                through the menu, even without backdrop-filter support */}
+            <button
+              type="button"
+              aria-label="Close menu"
+              tabIndex={-1}
+              onClick={() => setMobileOpen(false)}
+              className="fixed inset-0 z-40 cursor-default bg-[#05060a]/85 md:hidden"
+            />
+            <div className="relative z-50 mt-2 rounded-2xl border border-white/10 bg-[#0b0d16] p-4 shadow-[0_24px_64px_-16px_rgba(0,0,0,0.85)] md:hidden">
+              <ul className="flex flex-col gap-1">
+                {NAV_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      aria-current={isActive(link.href) ? "page" : undefined}
+                      className={`block rounded-xl px-4 py-3 text-base font-medium transition-colors ${
+                        isActive(link.href)
+                          ? "bg-white/10 text-white"
+                          : "text-zinc-200 hover:bg-white/5 hover:text-white"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+                <li className="mt-2">
                   <Link
-                    href={link.href}
+                    href="/contact"
                     onClick={() => setMobileOpen(false)}
-                    aria-current={isActive(link.href) ? "page" : undefined}
-                    className={`block rounded-xl px-4 py-3 text-base font-medium transition-colors ${
-                      isActive(link.href)
-                        ? "bg-white/10 text-white"
-                        : "text-zinc-200 hover:bg-white/5 hover:text-white"
-                    }`}
+                    className="block rounded-xl bg-gradient-to-r from-cyan-400 via-brand-400 to-violet-500 px-4 py-3 text-center text-base font-semibold text-white"
                   >
-                    {link.label}
+                    Start Project
                   </Link>
                 </li>
-              ))}
-              <li className="mt-2">
-                <Link
-                  href="/contact"
-                  onClick={() => setMobileOpen(false)}
-                  className="block rounded-xl bg-gradient-to-r from-cyan-400 via-brand-400 to-violet-500 px-4 py-3 text-center text-base font-semibold text-white"
-                >
-                  Start Project
-                </Link>
-              </li>
-            </ul>
-          </div>
+              </ul>
+            </div>
+          </>
         ) : null}
       </div>
     </header>
