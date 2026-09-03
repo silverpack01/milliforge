@@ -12,7 +12,7 @@ const BENTO: Record<string, { span: string; size: "lg" | "md" | "sm" }> = {
 
 export function Services() {
   return (
-    <section id="services" className="relative py-20 sm:py-28">
+    <section id="services" className="relative overflow-hidden py-20 sm:py-28">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="animate-blob-slow absolute top-1/3 -right-32 h-[420px] w-[420px] rounded-full bg-brand-600/15 blur-[140px]" />
         <div className="animate-blob absolute bottom-0 -left-32 h-[420px] w-[420px] rounded-full bg-violet-500/15 blur-[140px]" />

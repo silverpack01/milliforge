@@ -13,7 +13,7 @@ import {
 
 export function Contact() {
   return (
-    <section id="contact" className="relative py-20 sm:py-28">
+    <section id="contact" className="relative overflow-hidden py-20 sm:py-28">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="animate-blob absolute bottom-0 left-1/2 h-[480px] w-[720px] -translate-x-1/2 rounded-full bg-brand-600/20 blur-[160px]" />
       </div>
