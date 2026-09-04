@@ -122,6 +122,31 @@ export const SERVICES: Service[] = [
     tint: "from-emerald-500/40 to-emerald-500/5 text-emerald-300",
   },
   {
+    slug: "android-development",
+    icon: AppIcon,
+    title: "Android Development",
+    tagline: "Native Android apps engineered for performance and scale.",
+    description:
+      "We build polished, production-ready Android apps using modern Kotlin and Jetpack — from MVPs to full enterprise products. Material Design, offline support, secure APIs, Play Store publishing and ongoing maintenance, all handled in-house.",
+    points: ["Native Kotlin", "Material Design", "Play Store publishing"],
+    deliverables: [
+      "Product scoping & UX flows",
+      "Native Android UI in Kotlin",
+      "REST & GraphQL API integrations",
+      "Offline storage & sync",
+      "Push notifications & analytics",
+      "Play Store publishing & maintenance",
+    ],
+    process: [
+      { title: "Scoping", text: "We define features, devices and a lean release roadmap." },
+      { title: "Design", text: "Material Design UI/UX with clickable prototypes." },
+      { title: "Build", text: "Agile sprints with weekly builds on real devices." },
+      { title: "Publish", text: "Store listing, rollout and post-launch iteration." },
+    ],
+    stack: ["Kotlin", "Jetpack Compose", "Material 3", "Firebase", "Room", "Retrofit"],
+    tint: "from-emerald-500/40 to-emerald-500/5 text-emerald-300",
+  },
+  {
     slug: "ui-ux-design",
     icon: UiuxIcon,
     title: "UI/UX Design",

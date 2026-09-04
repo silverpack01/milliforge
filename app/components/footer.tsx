@@ -22,10 +22,10 @@ const LEGAL_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="relative mt-10 border-t border-white/5 py-14">
+    <footer className="relative mt-10 border-t border-white/5 py-12 sm:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
-          <div>
+        <div className="grid gap-8 sm:grid-cols-2 sm:gap-10 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
+          <div className="sm:col-span-2 md:col-span-1">
             <Link href="/" aria-label="MilliForge home">
               <Logo />
             </Link>
@@ -93,9 +93,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/5 pt-6 text-xs text-zinc-500 sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/5 pt-6 text-xs text-zinc-500 sm:flex-row">
           <p>© {new Date().getFullYear()} MilliForge. All rights reserved.</p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
             {LEGAL_LINKS.map((link) => (
               <Link
                 key={link.href}

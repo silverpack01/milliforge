@@ -1,65 +1,15 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHero } from "../components/page-hero";
 import { CtaBanner } from "../components/cta-banner";
 import { Work } from "../components/work";
-import { AppIcon, ChartIcon, CodeIcon, SeoIcon, ShopifyIcon, UiuxIcon } from "../components/icons";
+import { PROJECTS } from "../lib/projects";
 
 export const metadata: Metadata = {
   title: "Work — MilliForge",
   description:
-    "Selected projects and case studies from MilliForge — websites, apps, Shopify stores and SEO campaigns we've forged.",
+    "Selected projects and case studies from MilliForge — websites, apps, platforms and automations we've forged.",
 };
-
-const PROJECTS = [
-  {
-    icon: ShopifyIcon,
-    category: "Shopify",
-    title: "Fashion E-commerce Store",
-    text: "Custom theme, speed optimization and CRO for a growing clothing brand.",
-    result: "2.8x conversion lift",
-    tint: "from-emerald-500/40 to-emerald-500/5 text-emerald-300",
-  },
-  {
-    icon: CodeIcon,
-    category: "Web App",
-    title: "SaaS Analytics Dashboard",
-    text: "Real-time dashboard with role-based access and custom reporting.",
-    result: "40k monthly users",
-    tint: "from-brand-500/40 to-brand-500/5 text-brand-300",
-  },
-  {
-    icon: AppIcon,
-    category: "Mobile App",
-    title: "Fitness Tracking App",
-    text: "Cross-platform app with offline mode, streaks and push notifications.",
-    result: "50k+ downloads",
-    tint: "from-accent-500/40 to-accent-500/5 text-accent-300",
-  },
-  {
-    icon: SeoIcon,
-    category: "SEO",
-    title: "Local Services SEO Campaign",
-    text: "Technical fixes plus content strategy for a services marketplace.",
-    result: "3x organic traffic",
-    tint: "from-violet-500/40 to-violet-500/5 text-violet-300",
-  },
-  {
-    icon: UiuxIcon,
-    category: "UI/UX",
-    title: "Fintech Design System",
-    text: "End-to-end research, flows and a token-based design system.",
-    result: "60% faster handoff",
-    tint: "from-pink-500/40 to-pink-500/5 text-pink-300",
-  },
-  {
-    icon: ChartIcon,
-    category: "Web + SEO",
-    title: "B2B Marketing Website",
-    text: "Next.js rebuild with structured data and Core Web Vitals pass.",
-    result: "95+ PageSpeed",
-    tint: "from-amber-500/40 to-amber-500/5 text-amber-300",
-  },
-];
 
 export default function WorkPage() {
   return (
@@ -71,35 +21,40 @@ export default function WorkPage() {
             Work we&apos;re <span className="text-gradient">proud of</span>
           </>
         }
-        description="A snapshot of the products we've forged — websites, apps, stores and campaigns that moved real business numbers."
+        description="A snapshot of the products we've forged — websites, platforms, stores and automations that moved real business numbers."
       />
 
-      <section className="pb-10">
+      <section className="pb-6 sm:pb-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
             {PROJECTS.map((project) => {
               const Icon = project.icon;
               return (
-                <article
-                  key={project.title}
-                  className="glass group relative flex flex-col overflow-hidden rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.07]"
+                <Link
+                  key={project.slug}
+                  href={`/work/${project.slug}`}
+                  className="glass group relative flex flex-col overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.07] sm:rounded-3xl sm:p-6"
                 >
                   <div className="flex items-center justify-between">
                     <span
-                      className={`inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br ${project.tint}`}
+                      className={`inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br sm:h-11 sm:w-11 ${project.tint}`}
                     >
                       <Icon className="h-5 w-5" />
                     </span>
-                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-300">
+                    <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] text-zinc-300 sm:px-3 sm:text-xs">
                       {project.category}
                     </span>
                   </div>
-                  <h2 className="mt-4 text-lg font-semibold text-white">{project.title}</h2>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-400">
-                    {project.text}
+                  <h2 className="mt-3 text-base font-semibold text-white sm:mt-4 sm:text-lg">
+                    {project.title}
+                  </h2>
+                  <p className="mt-1.5 flex-1 text-xs leading-relaxed text-zinc-400 sm:mt-2 sm:text-sm">
+                    {project.short}
                   </p>
-                  <p className="text-gradient mt-4 text-sm font-bold">{project.result}</p>
-                </article>
+                  <p className="text-gradient mt-3 text-xs font-bold sm:mt-4 sm:text-sm">
+                    {project.result}
+                  </p>
+                </Link>
               );
             })}
           </div>

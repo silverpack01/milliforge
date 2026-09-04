@@ -34,10 +34,10 @@ const VALUES = [
 ];
 
 const TIMELINE = [
-  { year: "2021", title: "MilliForge is founded", text: "Started as a two-person studio building websites for local businesses." },
-  { year: "2022", title: "Full-service expansion", text: "Added SEO and UI/UX to serve clients end-to-end." },
-  { year: "2023", title: "Shopify & e-commerce", text: "Became a go-to partner for online stores across the region." },
-  { year: "2024", title: "120+ projects shipped", text: "Scaled to a full in-house design and engineering team." },
+  { year: "2023", title: "MilliForge is founded", text: "Started as a focused software house building websites and digital products for ambitious teams." },
+  { year: "2024", title: "Android & mobile expansion", text: "Added native Android development alongside web — one team, every screen." },
+  { year: "2025", title: "Shopify & strategic partnerships", text: "Partnered with software houses like WebCodexi, delivering end-to-end products for their clients." },
+  { year: "2026", title: "120+ projects shipped", text: "Scaled to a full in-house design and engineering team serving clients worldwide." },
   { year: "Today", title: "Build your digital future", text: "Helping ambitious businesses worldwide forge products that grow." },
 ];
 
@@ -56,43 +56,43 @@ export default function AboutPage() {
 
       <About />
 
-      <section className="py-14 sm:py-20">
+      <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-2xl font-bold tracking-tight sm:text-4xl">
               What we <span className="text-gradient">stand for</span>
             </h2>
           </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          <div className="mt-8 grid gap-3 sm:mt-10 sm:grid-cols-2 sm:gap-4">
             {VALUES.map((value) => (
-              <div key={value.title} className="glass rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.07]">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500/30 to-violet-500/30 text-brand-300">
+              <div key={value.title} className="glass rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.07] sm:rounded-3xl sm:p-6">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500/30 to-violet-500/30 text-brand-300 sm:h-11 sm:w-11">
                   <value.icon className="h-5 w-5" />
                 </span>
-                <h3 className="mt-4 text-lg font-semibold text-white">{value.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-zinc-400">{value.text}</p>
+                <h3 className="mt-3 text-base font-semibold text-white sm:mt-4 sm:text-lg">{value.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-zinc-400 sm:mt-2">{value.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="pb-10">
+      <section className="pb-8 sm:pb-10">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-2xl font-bold tracking-tight sm:text-4xl">
               Our <span className="text-gradient">journey</span>
             </h2>
           </div>
-          <ol className="mt-10 space-y-3">
+          <ol className="mt-8 space-y-2.5 sm:mt-10 sm:space-y-3">
             {TIMELINE.map((item) => (
-              <li key={item.year} className="glass flex items-start gap-5 rounded-2xl p-5">
-                <span className="text-gradient w-16 shrink-0 pt-0.5 text-sm font-bold">
+              <li key={item.year} className="glass flex items-start gap-3 rounded-2xl p-4 sm:gap-5 sm:p-5">
+                <span className="text-gradient w-14 shrink-0 pt-0.5 text-sm font-bold sm:w-16">
                   {item.year}
                 </span>
                 <span>
                   <span className="block text-sm font-semibold text-white">{item.title}</span>
-                  <span className="mt-1 block text-sm text-zinc-400">{item.text}</span>
+                  <span className="mt-1 block text-sm leading-relaxed text-zinc-400">{item.text}</span>
                 </span>
               </li>
             ))}

@@ -58,19 +58,19 @@ export default function ContactPage() {
         description="Tell us about your idea — a website, an app, a Shopify store or a full brand experience. Fill the form and it lands directly in our WhatsApp."
       />
 
-      <section className="pb-16">
-        <div className="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8">
+      <section className="pb-12">
+        <div className="mx-auto grid max-w-6xl gap-4 px-4 sm:gap-6 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8">
           <ContactForm />
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3 sm:gap-4">
             {INFO.map((item) => {
               const content = (
                 <>
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500/30 to-violet-500/30 text-brand-300">
-                    <item.icon className="h-5 w-5" />
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500/30 to-violet-500/30 text-brand-300 sm:h-11 sm:w-11">
+                    <item.icon className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
                   </span>
                   <span>
-                    <span className="block text-xs text-zinc-400">{item.label}</span>
+                    <span className="block text-[11px] text-zinc-400 sm:text-xs">{item.label}</span>
                     <span className="block text-sm font-semibold text-white">
                       {item.value}
                     </span>
@@ -83,25 +83,25 @@ export default function ContactPage() {
                   href={item.href}
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noopener noreferrer" : undefined}
-                  className="glass flex items-center gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/[0.08]"
+                  className="glass flex items-center gap-3 rounded-2xl p-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/[0.08] sm:gap-4 sm:p-5"
                 >
                   {content}
                 </a>
               ) : (
                 <div
                   key={item.label}
-                  className="glass flex items-center gap-4 rounded-2xl p-5"
+                  className="glass flex items-center gap-3 rounded-2xl p-4 sm:gap-4 sm:p-5"
                 >
                   {content}
                 </div>
               );
             })}
 
-            <div className="glass rounded-2xl p-6">
+            <div className="glass rounded-2xl p-5 sm:p-6">
               <h2 className="text-sm font-semibold text-white">What happens next?</h2>
-              <ol className="mt-4 space-y-3">
+              <ol className="mt-3 space-y-2.5 sm:mt-4 sm:space-y-3">
                 {STEPS.map((step, index) => (
-                  <li key={step} className="flex items-start gap-3 text-sm text-zinc-400">
+                  <li key={step} className="flex items-start gap-2.5 text-sm text-zinc-400 sm:gap-3">
                     <span className="text-gradient font-bold">{index + 1}.</span>
                     {step}
                   </li>

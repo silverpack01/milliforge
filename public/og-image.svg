@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#05060a" />
+      <stop offset="50%" stop-color="#0a0e1a" />
+      <stop offset="100%" stop-color="#05060a" />
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="50%" stop-color="#5b7cff" />
+      <stop offset="100%" stop-color="#a78bfa" />
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.2" cy="0.3" r="0.5">
+      <stop offset="0%" stop-color="#5b7cff" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#5b7cff" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.85" cy="0.75" r="0.5">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow1)" />
+  <rect width="1200" height="630" fill="url(#glow2)" />
+
+  <!-- Logo mark: M with gradient bar -->
+  <g transform="translate(110, 110)">
+    <rect x="0" y="0" width="56" height="56" rx="14" fill="url(#brand)" opacity="0.15" stroke="url(#brand)" stroke-width="1.5" />
+    <path d="M14 42 L14 14 L24 14 L34 32 L34 14 L42 14 L42 42 L34 42 L24 24 L24 42 Z" fill="url(#brand)" />
+  </g>
+  <text x="190" y="148" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="700" fill="#f4f4f5" letter-spacing="-0.5">MilliForge</text>
+
+  <!-- Headline -->
+  <text x="110" y="310" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="800" fill="#f4f4f5" letter-spacing="-2">We build</text>
+  <text x="110" y="390" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="800" fill="url(#brand)" letter-spacing="-2">powerful digital</text>
+  <text x="110" y="470" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="800" fill="#f4f4f5" letter-spacing="-2">experiences.</text>
+
+  <!-- Subtitle -->
+  <text x="110" y="530" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="500" fill="#a1a1aa">Web · Android · Shopify · SEO · UI/UX</text>
+
+  <!-- Pill -->
+  <g transform="translate(110, 555)">
+    <rect x="0" y="0" width="290" height="42" rx="21" fill="rgba(91,124,255,0.18)" stroke="rgba(91,124,255,0.4)" />
+    <circle cx="22" cy="21" r="4" fill="#22d3ee" />
+    <text x="38" y="27" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#88a8ff">Available for new projects</text>
+  </g>
+
+  <!-- URL -->
+  <text x="1090" y="585" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#71717a" text-anchor="end">milliforge.dev</text>
+</svg>

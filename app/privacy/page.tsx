@@ -42,13 +42,13 @@ export default function PrivacyPage() {
         title="Privacy Policy"
         description="Last updated: January 2026. This policy explains what data MilliForge collects and how we handle it — in plain language."
       />
-      <section className="pb-10">
+      <section className="pb-8 sm:pb-10">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-3">
+          <div className="space-y-2.5 sm:space-y-3">
             {SECTIONS.map((section) => (
-              <div key={section.title} className="glass rounded-2xl p-6">
-                <h2 className="text-base font-semibold text-white">{section.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-zinc-400">{section.text}</p>
+              <div key={section.title} className="glass rounded-2xl p-4 sm:p-6">
+                <h2 className="text-sm font-semibold text-white sm:text-base">{section.title}</h2>
+                <p className="mt-1.5 text-sm leading-relaxed text-zinc-400 sm:mt-2">{section.text}</p>
               </div>
             ))}
           </div>
